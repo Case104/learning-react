@@ -2,35 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class App extends React.Component {
-
-	constructor(){
-		super();
-		this.state = { txt: 'this is the state text'}
-		this.update = this.update.bind(this)
-	}
-
-	update(e){
-		this.setState({txt: e.target.value})
-	}
-
   render(){
-  	let txt = this.state.txt
-    return (
-    	<div>
-    		<Widget txt={txt} update={this.update} />
-    	</div>
-    );
+  	return <Button>I <Heart/> React</Button>
   }
 }
 
-const Widget = (props) => {
- return (
-		<div>
-			<input type='text'
-			onChange={props.update} />
-			<h1>{props.txt}</h1>
-		</div>
-	);
+class Button extends React.Component {
+	render(){
+		return <button>{this.props.children}</button>
+	}
 }
 
+const Heart = () => <span>heart</span>
 export default App
